@@ -9,7 +9,7 @@ namespace EmployeePresentorAbsent
     class presentorabsent
 
     {
-        int empHrs = 0, empWage=0, Emprateperhr = 20, IspartTime = 2;
+        int empHrs = 0, empWage=0, Emprateperhr = 20, IspartTime = 2, totalEmpWage = 0, NumOfWorkingDays = 10;
         public void checkStatus()
         {
             Random rand = new Random();
@@ -66,6 +66,61 @@ namespace EmployeePresentorAbsent
             empWage = empHrs * Emprateperhr;
             Console.WriteLine("Daily employee wage " + empWage + "\n");
         }
+        public void EmpWageUsingSwitch()
+        {
+            Random rand = new Random();
+            int empCheck = rand.Next(0, 3);
+
+            switch (empCheck)
+            {
+                case 1:
+                    Console.WriteLine("Employee is present full time");
+                    empHrs = 8;
+                    break;
+
+                case 2:
+                    Console.WriteLine("Employee is present part time");
+                    empHrs = 4;
+                    break;
+
+                default:
+                    Console.WriteLine("Employee is absent");
+                    empHrs = 0;
+                    break;
+            }
+            empWage = empHrs * Emprateperhr;
+            Console.WriteLine("Daily employee wage " + empWage + "\n");
+        }
+        public void calculateMonthlyWage()
+        {
+            for (int days = 0; days < NumOfWorkingDays; days++)
+            {
+                Random rand = new Random();
+                int empCheck = rand.Next(0, 3);
+                switch (empCheck)
+                {
+                    case 1:
+                        Console.WriteLine("Employee is present full time");
+                        empHrs = 8;
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Employee is present part time");
+                        empHrs = 4;
+                        break;
+
+                    default:
+                        Console.WriteLine("Employee is absent");
+                        empHrs = 0;
+                        break;
+                }
+                empWage = empHrs * Emprateperhr;
+                totalEmpWage += empWage;
+                Console.WriteLine("Daily employee wage " + empWage);
+            }
+            Console.WriteLine("Total employee wage for month " + totalEmpWage + "\n");
+        }
+
 
 
 

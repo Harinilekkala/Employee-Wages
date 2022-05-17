@@ -12,6 +12,8 @@ namespace EmployeePresentorAbsent
             presentabsent.checkStatus();
             presentabsent.dailyWages();
             presentabsent.AddPartTimeWages();
+            presentabsent.EmpWageUsingSwitch();
+            presentabsent.calculateMonthlyWage();
 
         }
     }
