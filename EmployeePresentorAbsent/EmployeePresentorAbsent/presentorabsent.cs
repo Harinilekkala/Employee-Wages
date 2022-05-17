@@ -9,7 +9,7 @@ namespace EmployeePresentorAbsent
     class presentorabsent
 
     {
-        int empHrs = 0, empWage=0, Emprateperhr = 20, IspartTime = 2, totalEmpWage = 0, NumOfWorkingDays = 10;
+        int empHrs = 0, empWage=0, Emprateperhr = 20, IspartTime = 2, totalEmpWage = 0, NumOfWorkingDays = 10, totalEmpHrs = 0, MAX_HRS_IN_MONTH = 40, totalWorkingDays = 0, NUM_OF_WORKING_DAYS = 10;
         public void checkStatus()
         {
             Random rand = new Random();
@@ -120,10 +120,44 @@ namespace EmployeePresentorAbsent
             }
             Console.WriteLine("Total employee wage for month " + totalEmpWage + "\n");
         }
+        public void calculateTotalEmpWage()
+        {
+            while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+            {
+                totalWorkingDays++;
+                Random rand = new Random();
+                int empCheck = rand.Next(0, 3);
+                switch (empCheck)
+                {
+                    case 1:
+                        Console.WriteLine("Employee is present full time");
+                        empHrs = 8;
+                        break;
 
+                    case 2:
+                        Console.WriteLine("Employee is present part time");
+                        empHrs = 4;
+                        break;
 
-
-
+                    default:
+                        Console.WriteLine("Employee is absent");
+                        empHrs = 0;
+                        break;
+                }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days " + totalWorkingDays + " " + "Employee Hours " + totalEmpHrs);
+            }
+            int totalEmpWage = totalEmpHrs * Emprateperhr;
+            Console.WriteLine("Total employee wage " + totalEmpWage);
+        }
 
     }
 }
+
+
+
+
+
+
+    
+
