@@ -10,8 +10,9 @@ namespace EmployeePresentorAbsent
         {
             presentorabsent presentabsent = new presentorabsent();
             presentabsent.checkStatus();
+            presentabsent.dailyWages();
 
-            
+
         }
     }
 }

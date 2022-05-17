@@ -9,6 +9,7 @@ namespace EmployeePresentorAbsent
     class presentorabsent
 
     {
+        int empHrs = 0, empWage=0, Emprateperhr = 20;
         public void checkStatus()
         {
             Random rand = new Random();
@@ -23,5 +24,27 @@ namespace EmployeePresentorAbsent
                 Console.WriteLine("Employee is absent" + "\n");
             }
         }
+        public void dailyWages()
+        {
+            Random rand = new Random();
+            int empCheck = rand.Next(0, 3);
+            if (empCheck == 1)
+            {
+                Console.WriteLine("Employee is present");
+                empHrs = 8;
+            }
+            else
+            {
+                Console.WriteLine("Employee is absent");
+                empHrs = 0;
+            }
+            empWage = empHrs * Emprateperhr;
+            Console.WriteLine("Daily employee wage " + empWage + "\n");
+        }
+
+        
+
+
+
     }
 }
